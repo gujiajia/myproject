@@ -1,978 +1,258 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>jquery如何实现背景的淡入淡出效果</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <style>
-        #Thumb img {
-            width: 65px;
-        }
-        
-        #Thumb img.hover {
-            opacity: 0.5;
-            filter: alpha(opacity=50)
-        }
-        
-        .nav {
-            border: 1px solid #66CCFF;
-            padding: 1px;
-            width: 325px;
-            height: 590px;
-        }
-        
-        .imgs {
-            position: relative;
-            width: 325px;
-            height: 485px;
-        }
-        
-        .imgs img {
-            width: 325px;
-            height: 485px;
-        }
-        
-        .imgs span {
-            position: absolute;
-            bottom: 1px;
-            left: 0;
-            height: 28px;
-            line-height: 28px;
-            width: 325px;
-            font-size: 12px;
-            background: #000;
-            color: #FFF;
-            opacity: 0.7;
-            filter: alpha(opacity=70);
-            text-align: center;
-        }
-        
-        #Thumb {
-            padding: 3px;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="nav">
-        <div class="imgs">
-            <img src="" id="xImage">
-            <span id="xDes"></span>
-        </div>
-        <div id="Thumb">
-            <img src="http://i.baidu.com/yule/r/image/2008-09-27/46348e638ede50ab6104dfe0eedcf7fd.jpg" id="xImage_1">
-            <input id="xDes_1" type="hidden" value="描术文字一">
-            <img src="http://www.xiannv.com/upimg/mingxing/1009/02/2/1%20(12).jpg" id="xImage_2">
-            <input id="xDes_2" type="hidden" value="桂纶镁">
-            <img src="http://www.xiannv.com/upimg/mingxing/1007/09/1/1%20(8).jpg" id="xImage_3">
-            <input id="xDes_3" type="hidden" value="陈意涵">
-            <img src="http://www.shcaoan.com/wy/UploadFiles_5679/200906/2009060322063535.jpg" id="xImage_4">
-            <input id="xDes_4" type="hidden" value="郭书瑶">
-        </div>
-    </div>
-    <script type="text/javascript">
-        $("img[id^='xImage_']").click(
-            function() {
-                var id = $(this).attr("id").split('_');
-                var imageSrc = $(this).attr("src");
-                $("#xImage").fadeTo('slow', 0.01, function() {
-                    $("#xImage").attr("src", imageSrc);
-                    $("#xDes").text($("#xDes_" + id[1]).val());
-                    $(this).fadeTo('slow', 1);
-                });
-            });
-        $("#xImage").attr("src", $("#xImage_1").attr("src"));
-        $("#xDes").text($("#xDes_1").val());
-        $(function() {
-            var tab = $('div#Thumb>img');
-            tab.click(function() {
-                $(this).addClass('hover').siblings().removeClass('hover');
-            });
-        })
-    </script>
-</body>
-
-</html>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>我的博客</title>
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS STYLE SHEET -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
 
-    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/css.css">
-</head>
+    <!-- CUSTOM STYLES -->
+    <link href="css/style.css" rel="stylesheet" />
 
-<body>
-    <div class="page login">
-        <h1 class="alert ">警告</h1>
-        <div class="trunk">
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="login-content">
-            <div class="login-form">
-
-
-                <a class="logo"><img class="img-responsive" src="https://bootstrap-themes.github.io/application/assets/img/brand.png" alt=""></a>
-                <div class="input-group">
-                    <span class="input-group-addon">账号:</span>
-                    <input type="text" class="username form-control" onblur="loginPage.checkUsername()">
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon">密码:</span>
-                    <input type="text" class="password form-control">
-                </div>
-                <div class="login-group">
-                    <button class="btn btn-primary" onclick="loginPage.login()">登陆</button>
-                    <button class="btn btn-default">注册</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!--博客主页-->
-    <div class="page home">
-        <nav class="ck pc os app-navbar">
-            <div class="by">
-                <div class="or">
-                    <button type="button" class="ou collapsed" data-toggle="collapse" data-target="#navbar-collapse-main" aria-expanded="false">
-        <span class="cv">Toggle navigation</span>
-        <span class="ov"></span>
-        <span class="ov"></span>
-        <span class="ov"></span>
-      </button>
-                    <a class="e" href="index.html">
-                        <img src="assets/img/brand-white.png" alt="brand">
+    <body>
+        <div class="navbar navbar-default navbar-fixd-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/vivaldi-logo.png" alt="" class="img-responsive" />
                     </a>
                 </div>
-                <div class="f collapse" id="navbar-collapse-main" aria-expanded="false" style="height: 1px;">
-
-                    <ul class="nav navbar-nav ss">
-                        <li class="active">
-                            <a href="index.html">Home</a>
+                <div class="navbar-collapse collapse navbar-right scroll-me">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#home">HOME</a>
                         </li>
                         <li>
-                            <a href="profile/index.html">Profile</a>
+                            <a href="#services">SERVICES</a>
                         </li>
                         <li>
-                            <a data-toggle="modal" href="#msgModal">Messages</a>
+                            <a href="#works">WORKS</a>
                         </li>
                         <li>
-                            <a href="docs/index.html">Docs</a>
+                            <a href="#contact">CONTACT</a>
                         </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav og ale ss">
-                        <li>
-                            <a class="g" href="notifications/index.html">
-                                <span class="h ws"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <button class="cg fm ox anl" data-toggle="popover" data-original-title="" title="">
-              <img class="cu" src="assets/img/avatar-dhg.png">
-            </button>
-                        </li>
-                    </ul>
-
-                    <form class="ow og i" role="search">
-                        <div class="et">
-                            <input type="text" class="form-control" data-action="grow" placeholder="Search">
-                        </div>
-                    </form>
-
-                    <ul class="nav navbar-nav st su sv">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="profile/index.html">Profile</a></li>
-                        <li><a href="notifications/index.html">Notifications</a></li>
-                        <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
-                        <li><a href="docs/index.html">Docs</a></li>
-                        <li><a href="#" data-action="growl">Growl</a></li>
-                        <li><a href="login/index.html">Logout</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav hidden">
-                        <li><a href="#" data-action="growl">Growl</a></li>
-                        <li><a href="login/index.html">Logout</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
+        <!-- NAVBAR CODE END -->
+        <div id="home">
+            <div class="overlay">
+                <!-- overylay class usage -->
+                <div class="container">
+                    <div class="col-md-8 col-md-offset-2 text-center">
 
-    </div>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="dist/index.js"></script>
-</body>
+                        <h1>DESIGN AGENCY </h1>
+                        <h2>You Think, We Deliver </h2>
+                        <p class="p-cls">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--HOME SECTION END  -->
+        <section id="services">
+            <div class="container">
+                <div class="row text-center pad-bottom">
+                    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                        <h2 class="head-set">OUR SERVICES</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </p>
+                    </div>
+                </div>
+                <div class="row text-center">
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <i class="fa fa-recycle  fa-5x"></i>
+                        <h4 class="head-set">RESPONSIVE DESIGN</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <i class="fa fa-desktop  fa-5x"></i>
+                        <h4 class="head-set">EASY TO CUSTOMIZE </h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <i class="fa fa-bolt  fa-5x"></i>
+                        <h4 class="head-set">100% FREE TO USE</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--SERVICES SECTION END  -->
+        <div class="parallax-like">
+            <div class="overlay">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div>
+                                <strong>1300+</strong>
+                                <p>
+                                    Projects
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div>
+                                <strong>100+</strong>
+                                <p>
+                                    Locations
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 ">
+                            <div>
+                                <strong>5000+</strong>
+                                <p>
+                                    Employees
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--PARALLAX LIKE / STATS SECTION END  -->
+        <section id="works">
+            <div class="container">
+                <div class="row text-center pad-bottom">
+                    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                        <h2 class="head-set">OUR WORKS</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </p>
+                    </div>
+                </div>
+                <div class="row text-center portfolio-item">
+
+                    <div class="col-md-4 col-sm-4 ">
+                        <div class="alert alert-info">
+                            <img src="assets/img/1.jpg" class="img-responsive " alt="" />
+
+                            <h3>Project Title Here</h3>
+                            <h5><a href="#"><strong>Click Here</strong> </a>to go to the project</h5>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 ">
+                        <div class="alert alert-danger">
+                            <img src="assets/img/2.jpg" class="img-responsive " alt="" />
+
+                            <h3>Project Title Here</h3>
+                            <h5><a href="#"><strong>Click Here</strong> </a>to go to the project</h5>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-sm-4 ">
+                        <div class="alert alert-success">
+                            <img src="assets/img/3.jpg" class="img-responsive " alt="" />
+
+                            <h3>Project Title Here</h3>
+                            <h5><a href="#"><strong>Click Here</strong> </a>to go to the project</h5>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--WORKS / PORTFOLIO SECTION END  -->
+        <div id="video-sec" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=Ycv5fNd4AeM',containment:'self',autoPlay:true, mute:true, startAt:0, opacity:1,mute: true,showControls:false}">
+            <!-- change https://www.youtube.com/watch?v=Ycv5fNd4AeM to your youtube url-->
+            <div class="overlay">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <h1>HERE IS BACKGROUND VEDIO</h1>
+                            <h4>This scripts uses plugin <strong>jquery.mb.YTPlayer</strong>
+
+                            </h4>
+                            <h4>to play video in background of divs
+
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- VIDEO SECTION END-->
+        <section id="contact">
+            <div class="container">
+                <div class="row text-center ">
+                    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                        <h2 class="head-set">OUR LOCATION</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        </p>
+                        <br />
+                    </div>
+                </div>
+                <div class="row text-center">
+
+
+                    <div class="col-md-12">
+                        <h3>102, Melborne City,</h3>
+                        <h3>United States - 600 - 009 -00.</h3>
+                        <h3><strong>Email :</strong> info@yourdomain.com</h3>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- CONTACT SECTION END-->
+        <section id="clients">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="assets/img/audio.png" alt="" class="img-responsive" />
+                    </div>
+                    <div class="col-md-3">
+                        <img src="assets/img/codecanon.png" alt="" class="img-responsive" />
+                    </div>
+                    <div class="col-md-3">
+                        <img src="assets/img/graphic.png" alt="" class="img-responsive" />
+                    </div>
+                    <div class="col-md-3">
+                        <img src="assets/img/themeforest.png" alt="" class="img-responsive" />
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- CLIENTS SECTION END-->
+        <footer>
+            © 2015 YourDomain.com | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
+        </footer>
+    </body>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 </html>
