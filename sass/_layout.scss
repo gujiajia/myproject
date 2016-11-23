@@ -1,0 +1,21 @@
+// 全屏
+.full-screen{
+    display: table;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+// 竖直居中
+.vertical-center{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.level-center{
+    margin-left: auto;
+    margin-right: auto;
+}
