@@ -1,8 +1,28 @@
-$navbarColor:rgb(35, 133, 161);
+/*$navbarColor:rgb(35, 133, 161);
 body {
-    background: blue;
-    color: blue;
     .navbar {
         background: $navbarColor;
+        .navbar-nav li a,
+        .navbar-nav li a:hover {
+            color: #fff;
+        }
+    }
+}*/
+
+body {
+    .navbar {
+        background: rgb(35, 133, 161);
+        .navbar-brand>img {
+            margin-top: -10px;
+        }
+        .nav li a {
+            &:hover {
+                color: #fff;
+            }
+            color: #fff;
+        }
+    }
+    .navbar-default {
+        background: rgb(35, 133, 161);
     }
 }

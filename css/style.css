@@ -1,0 +1,21 @@
+/*$navbarColor:rgb(35, 133, 161);
+body {
+    .navbar {
+        background: $navbarColor;
+        .navbar-nav li a,
+        .navbar-nav li a:hover {
+            color: #fff;
+        }
+    }
+}*/
+body .navbar {
+  background: #2385a1; }
+  body .navbar .navbar-brand > img {
+    margin-top: -10px; }
+  body .navbar .nav li a {
+    color: #fff; }
+    body .navbar .nav li a:hover {
+      color: #fff; }
+
+body .navbar-default {
+  background: #2385a1; }
