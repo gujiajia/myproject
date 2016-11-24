@@ -1,0 +1,8 @@
+$navbarColor:rgb(35, 133, 161);
+body {
+    background: blue;
+    color: blue;
+    .navbar {
+        background: $navbarColor;
+    }
+}
