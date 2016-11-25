@@ -12,8 +12,9 @@ body {
 body {
     .navbar {
         background: rgb(35, 133, 161);
-        .navbar-brand>img {
-            margin-top: -10px;
+        border-bottom: 0;
+        .navbar-brand {
+            padding: 0;
         }
         .nav li a {
             &:hover {
@@ -24,5 +25,31 @@ body {
     }
     .navbar-default {
         background: rgb(35, 133, 161);
+        .navbar-toggle .icon-bar {
+            background-color: #fff;
+        }
+    }
+    #home {
+        background: url(../assets/img/home.jpg) no-repeat center center;
+        min-height: 600px;
+        padding: 0;
+        background-size: cover;
+        margin-top: 50px;
+        .overlay {
+            background: rgba(35, 133, 161, 0.75);
+            min-height: 600px;
+            color: #fff;
+            h1 {
+                font-weight: 900;
+                font-size: 100px;
+                font-family: 'Browallia New';
+                margin-top: 200px;
+                margin-bottom: 10px;
+            }
+            h2 {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+        }
     }
 }

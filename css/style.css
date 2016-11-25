@@ -9,9 +9,10 @@ body {
     }
 }*/
 body .navbar {
-  background: #2385a1; }
-  body .navbar .navbar-brand > img {
-    margin-top: -10px; }
+  background: #2385a1;
+  border-bottom: 0; }
+  body .navbar .navbar-brand {
+    padding: 0; }
   body .navbar .nav li a {
     color: #fff; }
     body .navbar .nav li a:hover {
@@ -19,3 +20,25 @@ body .navbar {
 
 body .navbar-default {
   background: #2385a1; }
+  body .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff; }
+
+body #home {
+  background: url(../assets/img/home.jpg) no-repeat center center;
+  min-height: 600px;
+  padding: 0;
+  background-size: cover;
+  margin-top: 50px; }
+  body #home .overlay {
+    background: rgba(35, 133, 161, 0.75);
+    min-height: 600px;
+    color: #fff; }
+    body #home .overlay h1 {
+      font-weight: 900;
+      font-size: 100px;
+      font-family: 'Browallia New';
+      margin-top: 200px;
+      margin-bottom: 10px; }
+    body #home .overlay h2 {
+      font-size: 30px;
+      margin-bottom: 10px; }
